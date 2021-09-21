@@ -1,0 +1,7 @@
+Bootstrap :
+my-3 container can be used to set the distance or margin between each container.For Ex:space between textbox and buttons.
+mx-2 to give margin in the x axis.for example: for buttons.
+
+in browser to select the element you can type, $0.style. ...., after selecting the element.
+
+revise template literal
