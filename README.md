@@ -1,2 +1,2 @@
-# codewithharry-tutorial
- This is for React learning purpose
+# Text Utils
+It is an Application that let's the user have fun with text!
