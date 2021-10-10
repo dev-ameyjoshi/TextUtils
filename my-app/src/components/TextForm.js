@@ -4,7 +4,6 @@ import React,{useState} from 'react'
 export default function TextForm(props) {
       
       const handleUpClick = () => {
-            // console.log("Upper case was clicked" + text);
             let newText = text.toUpperCase();
             setText(newText)
             props.showAlert("Converted to upper case","success");
@@ -17,18 +16,11 @@ export default function TextForm(props) {
       const handleClearClick = () =>{
             let newText = "";
             setText(newText)
-            props.showAlert("Cleared text","success");
-            
-            
+            props.showAlert("Cleared text","success");   
       }
       const handleCopy = () =>{
-            
-            var text = document.getElementById("myBox");
-            text.select();
-            navigator.clipboard.writeText(text.value);
-            document.getSelection().removeAllRanges();
+            navigator.clipboard.writeText(text);
             props.showAlert("Copied  To Clipboard! ","success");
-            
       }
       const handleExtraSpaces = () =>{
             let newText = text.split(/[ ]+/);
@@ -37,7 +29,6 @@ export default function TextForm(props) {
       }
       
       const handleOnChange = (event) => {
-            // console.log("On Change");
             setText(event.target.value);
       }
       const [text,setText] = useState('');
@@ -61,7 +52,7 @@ export default function TextForm(props) {
             </div>
             <div className="container my-3" style ={{color:props.mode==='dark' ? 'white':'#042743'}}>
                   <h1>Your Text summary</h1>
-                  <p>{text.split(" ").filter((element) => {return element.length!==0}).length} words and {text.length} characters</p>
+                  <p>{text.split(/\s+/ ).filter((element) => {return element.length!==0}).length} words and {text.length} characters</p>
                   <p>{0.008 * text.split(" ").filter((element) => {return element.length!==0}).length} Minutes read</p>
                   <h2>Preview</h2>
                   <p>{text.length>0?text:"Nothing to preview!"}</p>
